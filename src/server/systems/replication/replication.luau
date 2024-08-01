@@ -1,7 +1,7 @@
 -- General replication of components and entities
 local components = require("@cts")
 local ecr = require("@ecr")
-local network = require("@server/network")
+local net = require("@net/server")
 local player_utils = require("@utils/players")
 
 local REPLICATED_COMPONENTS = {
@@ -51,7 +51,7 @@ local function replication(world: ecr.Registry)
         end
 
         print("sending initial payload to", player, ":", payload)
-        network.replicate.fire(player, payload)
+        net.replicate.fire(player, payload)
     end)
 
     for _, component_name in REPLICATED_COMPONENTS do
@@ -82,7 +82,7 @@ local function replication(world: ecr.Registry)
         end
 
         -- todo add event firing
-        network.replicate.fire_all(replication_map)
+        net.replicate.fire_all(replication_map)
 
         replication_map = {}
     end

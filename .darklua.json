@@ -5,18 +5,28 @@
       "current": {
         "name": "path",
         "sources": {
-          "@pkg": "Packages/",
-          "@ecr": "Packages/ecr.lua",
-          "@vide": "Packages/vide.lua",
+          "@spkg": "./ServerPackages/",
+          "@pkg": "./Packages/",
+          "@ecr": "./Packages/ecr",
+          "@vide": "./Packages/vide",
+
           "@client": "src/client/",
           "@shared": "src/shared/",
           "@server": "src/server/",
-          "@spkg": "ServerPackages/",
+
           "@cts": "src/shared/components",
+
           "@defs": "src/shared/defs",
           "@consts": "src/shared/constants",
           "@configs": "src/shared/configs",
-          "@utils": "src/shared/utils"
+          "@utils": "src/shared/utils",
+
+          "@app": "src/app",
+          "@composables": "src/app/composables",
+          "@ui": "src/app/components",
+          "@props": "src/app/props",
+
+          "@net": "src/shared/network"
         }
       },
       "target": {

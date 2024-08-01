@@ -1,8 +1,8 @@
 local client_state = require("@client/state")
 local components = require("@cts")
 local ecr = require("@ecr")
+local net = require("@net/client")
 local net_utils = require("@utils/net")
-local network = require("@client/network")
 
 local DEBUG_MODE = true
 
@@ -14,7 +14,6 @@ end
 
 local function receive_replication(world: ecr.Registry)
     local entity_id_map = client_state.entity_id_map
-    local packet_queue = net_utils.event_queue(network.replicate)
 
     local function process_set(component_name, set, ids)
         if #set == 0 then
@@ -44,7 +43,7 @@ local function receive_replication(world: ecr.Registry)
     end
 
     local function process_removed(component_name, removed)
-        if #removed == 0 then
+        if not removed or #removed == 0 then
             return
         end
 
@@ -75,10 +74,10 @@ local function receive_replication(world: ecr.Registry)
     end
 
     return function()
-        for packet in packet_queue do
-            for component_name, component_data in packet do
-                process_set(component_name, component_data.set, component_data.ids)
-                process_removed(component_name, component_data.removed or {})
+        for index, packet in net.replicate.next() do
+            for component_name, data in packet do
+                process_set(component_name, data.set, data.ids)
+                process_removed(component_name, data.removed)
             end
         end
     end

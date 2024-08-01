@@ -20,12 +20,17 @@ dependencies = []
 [[package]]
 name = "derekpowell/luau-ecr-test"
 version = "0.1.0"
-dependencies = [["ecr", "centau/ecr@0.8.0"], ["promise", "lukadev-0/typed-promise@4.0.2"], ["spawn", "red-blox/spawn@1.1.0"], ["trove", "sleitnick/trove@1.4.0"], ["vide", "centau/vide@0.2.0"], ["profile_service", "alreadypro/profileservice@1.0.4"]]
+dependencies = [["ecr", "centau/ecr@0.8.0"], ["promise", "lukadev-0/typed-promise@4.0.2"], ["ripple", "littensy/ripple@0.8.2"], ["spawn", "red-blox/spawn@1.1.0"], ["trove", "sleitnick/trove@1.4.0"], ["vide", "centau/vide@0.2.0"], ["profile_service", "alreadypro/profileservice@1.0.4"]]
 
 [[package]]
 name = "evaera/promise"
 version = "4.0.0"
 dependencies = []
+
+[[package]]
+name = "littensy/ripple"
+version = "0.8.2"
+dependencies = [["Promise", "evaera/promise@4.0.0"]]
 
 [[package]]
 name = "lukadev-0/typed-promise"

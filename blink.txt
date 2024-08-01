@@ -1,0 +1,17 @@
+option Casing = Snake
+option TypesOutput = "src/shared/network/types.luau"
+option ServerOutput = "src/shared/network/server.luau"
+option ClientOutput = "src/shared/network/client.luau"
+option UsePolling = "true"
+
+event replicate {
+    From: Server,
+    Type: Reliable,
+    Call: SingleAsync,
+    Poll: true,
+    Data: map{[string]: struct {
+        set: unknown[],
+        ids: u32[],
+        removed: u32[]?,
+    }}
+}

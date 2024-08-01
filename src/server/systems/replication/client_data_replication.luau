@@ -1,7 +1,7 @@
 local components = require("@cts")
 local data_template = require("@defs/datastore-template")
 local ecr = require("@ecr")
-local network = require("@server/network")
+local net = require("@net/server")
 
 local function client_data_replication(world: ecr.Registry)
     -- a set of datastore saved components to replicate
@@ -19,7 +19,7 @@ local function client_data_replication(world: ecr.Registry)
             return
         end
 
-        network.replicate.fire(client, {
+        net.replicate.fire(client, {
             [component_name] = {
                 set = { data },
                 ids = { entity },
@@ -49,7 +49,7 @@ local function client_data_replication(world: ecr.Registry)
                 return
             end
 
-            network.replicate.fire(client, {
+            net.replicate.fire(client, {
                 [component_name] = {
                     ids = {},
                     set = {},
