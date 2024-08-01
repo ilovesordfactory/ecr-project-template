@@ -1,0 +1,60 @@
+// Folder-specific settings
+//
+// For a full list of overridable settings, and general information on folder-specific settings,
+// see the documentation: https://zed.dev/docs/configuring-zed#folder-specific-settings
+{
+  "lsp": {
+    "luau-lsp": {
+      "settings": {
+        "luau-lsp": {
+          "completion": {
+            "imports": {
+              "enabled": true,
+              "suggestServices": true,
+              "suggestRequires": false
+            }
+          },
+          "require": {
+            "mode": "relativeToFile",
+            "directoryAliases": {
+              "@pkg": "Packages/",
+              "@ecr": "Packages/ecr.lua",
+              "@vide": "Packages/vide.lua",
+              "@client": "src/client/",
+              "@shared": "src/shared/",
+              "@server": "src/server/",
+              "@spkg": "ServerPackages/",
+              "@cts": "src/shared/components",
+              "@defs": "src/shared/defs",
+              "@consts": "src/shared/constants",
+              "@configs": "src/shared/configs",
+              "@utils": "src/shared/utils"
+            }
+          }
+        },
+        "ext": {
+          "roblox": {
+            "enabled": true,
+            "security_level": "roblox_script"
+          },
+          "fflags": {
+            "override": {
+              "LuauTinyControlFlowAnalysis": "true"
+            }
+          }
+        }
+      }
+    }
+  },
+  "languages": {
+    "Luau": {
+      "formatter": {
+        "external": {
+          "command": "stylua",
+          "arguments": ["-"]
+        }
+      },
+      "format_on_save": "on"
+    }
+  }
+}

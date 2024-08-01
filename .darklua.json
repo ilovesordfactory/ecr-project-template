@@ -1,0 +1,35 @@
+{
+  "process": [
+    {
+      "rule": "convert_require",
+      "current": {
+        "name": "path",
+        "sources": {
+          "@pkg": "Packages/",
+          "@ecr": "Packages/ecr.lua",
+          "@vide": "Packages/vide.lua",
+          "@client": "src/client/",
+          "@shared": "src/shared/",
+          "@server": "src/server/",
+          "@spkg": "ServerPackages/",
+          "@cts": "src/shared/components",
+          "@defs": "src/shared/defs",
+          "@consts": "src/shared/constants",
+          "@configs": "src/shared/configs",
+          "@utils": "src/shared/utils"
+        }
+      },
+      "target": {
+        "name": "roblox",
+        "rojo_sourcemap": "sourcemap.json",
+        "indexing_style": "wait_for_child"
+      }
+    },
+    "compute_expression",
+    "remove_unused_if_branch",
+    "remove_unused_while",
+    "filter_after_early_return",
+    "remove_nil_declaration",
+    "remove_empty_do"
+  ]
+}

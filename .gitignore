@@ -1,0 +1,10 @@
+# Project place file
+/luau-ecr-test.rbxlx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+/Packages
+/ServerPackages
+/dist
