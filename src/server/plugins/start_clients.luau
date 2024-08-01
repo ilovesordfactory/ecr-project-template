@@ -1,12 +1,12 @@
 local RunService = game:GetService("RunService")
 
 local components = require("@cts")
-local data_template = require("@defs/datastore-template")
+local data_template = require("@defs/datastore_template")
 local ecr = require("@ecr")
 local player_utils = require("@utils/players")
 local profile_service = require("@spkg/profile_service")
-local store_config = require("@configs/datastore-configs")
-local store_constants = require("@consts/datastore-constants")
+local store_config = require("@configs/datastore_configs")
+local store_constants = require("@consts/datastore_constants")
 
 local store = profile_service.GetProfileStore(store_constants.STORE_KEY, data_template)
 

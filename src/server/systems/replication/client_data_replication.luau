@@ -2,7 +2,6 @@ local components = require("@cts")
 local data_template = require("@defs/datastore-template")
 local ecr = require("@ecr")
 local net = require("@net/server")
-local player_utils = require("@utils/players")
 
 local function client_data_replication(world: ecr.Registry)
     -- a set of datastore saved components to replicate
