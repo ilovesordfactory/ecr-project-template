@@ -17,6 +17,7 @@ export type appearance = {
     background_transparency: Derivable<number>?,
     border_color_3: Derivable<Color3>?,
     border_size_pixel: Derivable<number>?,
+    clip_descendants: Derivable<boolean>?,
 }
 
 export type text = {
