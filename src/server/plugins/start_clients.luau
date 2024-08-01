@@ -44,6 +44,27 @@ return function(world: ecr.Registry)
             world:set(entity, component, component_data)
         end
 
+        player_utils
+            .promise_disconnect(player)
+            :andThen(function()
+                for component_name in profile.Data do
+                    local component = components[component_name]
+
+                    local current_data = world:try_get(entity, component)
+
+                    if not current_data then
+                        task.spawn(error, `failed to get data for {component_name} for {player.Name}`)
+                        continue
+                    end
+
+                    profile.Data[component_name] = current_data
+                end
+            end)
+            :finally(function()
+                world:destroy(entity)
+                print("saved session data, destroyed entity", profile.Data)
+            end)
+
         return entity
     end
 

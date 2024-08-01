@@ -13,7 +13,7 @@ local function client_data_replication(world: ecr.Registry)
     end
 
     local function send_set_event(component_name, entity, data)
-        local client = world:get(entity, components.Client)
+        local client = world:try_get(entity, components.Client)
 
         if not client then
             return
@@ -43,7 +43,7 @@ local function client_data_replication(world: ecr.Registry)
         end)
 
         world:on_remove(component):connect(function(entity)
-            local client = world:get(entity, components.Client)
+            local client = world:try_get(entity, components.Client)
 
             if not client then
                 return
