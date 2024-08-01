@@ -1,5 +1,5 @@
 local components = require("@cts")
-local data_template = require("@defs/datastore-template")
+local data_template = require("@defs/datastore_template")
 local ecr = require("@ecr")
 local net = require("@net/server")
 
