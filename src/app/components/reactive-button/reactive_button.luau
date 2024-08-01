@@ -30,7 +30,7 @@ local frame = require("@ui/primitive/frame")
 local read = vide.read
 local effect = vide.effect
 
-local function reactive_button(props: ReactiveButtonProps)
+local function reactive_button(props: ReactiveButtonProps, children: props.children?)
     props.animate_size = props.animate_size or true
     props.animate_position = props.animate_position or true
     -- typecasted to any because of weird error with derivables
@@ -137,7 +137,7 @@ local function reactive_button(props: ReactiveButtonProps)
                     size_motion
                 )
             end,
-        }),
+        }, children),
     })
 end
 
