@@ -137,7 +137,10 @@ local function reactive_button(props: ReactiveButtonProps, children: props.child
                     size_motion
                 )
             end,
-        }, children),
+        }, {
+            corner(props),
+            children,
+        }),
     })
 end
 
